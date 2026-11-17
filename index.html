@@ -1,0 +1,1349 @@
+<!doctype html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>සුබ උපන්දිනයක් | Happy Birthday</title>
+  <meta name="description" content="Wishing R. Sarath Ratnayake & Deepani Ratnayake a very Happy Birthday!"/>
+  <link rel="icon" type="image/png" href="/favicon.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Allison&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500;600;700&family=Noto+Sans+Sinhala:wght@300;400;500;600;700&family=Yatra+One&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    /* ==============================================
+       CSS VARIABLES
+    =============================================== */
+    :root {
+      --bg1: #1a0533;
+      --bg2: #2d0845;
+      --bg3: #0d1a4a;
+      --bg4: #1a2d0d;
+      --gold:        #f5c842;
+      --gold-dark:   #c89a1a;
+      --gold-bright: #ffe066;
+      --gold-pale:   #fff8d6;
+      --pink:  #ff6fa8;
+      --pink2: #ff9ed4;
+      --teal:  #00e5cc;
+      --purple:#b366ff;
+      --white: #ffffff;
+      --ink:   #1a0533;
+      --max: 720px;
+      --r-lg: 24px;
+      --r-md: 16px;
+      /* font families */
+      --f-si: "Noto Sans Sinhala", sans-serif;
+      --f-en: "Cormorant Garamond", serif;
+      --f-title: "Allison", cursive;
+      --f-caps: "Cinzel", serif;
+      --f-body: "DM Sans", sans-serif;
+    }
+
+    /* ==============================================
+       RESET & BASE
+    =============================================== */
+    *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--f-body);
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--white);
+      overflow-x: hidden;
+      min-height: 100vh;
+      background: var(--bg1);
+    }
+    ::selection { background: rgba(245,200,66,0.35); }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #120320; }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
+
+    /* ==============================================
+       ANIMATED BACKGROUND — no video, pure CSS
+    =============================================== */
+    .bg-wrap {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .bg-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg,
+        #1a0533 0%,
+        #2d0845 20%,
+        #0d1a4a 42%,
+        #0a2a1a 60%,
+        #2d0845 80%,
+        #1a0533 100%);
+      background-size: 400% 400%;
+      animation: bgShift 18s ease-in-out infinite alternate;
+    }
+    @keyframes bgShift {
+      0%   { background-position: 0% 0%; }
+      33%  { background-position: 100% 50%; }
+      66%  { background-position: 50% 100%; }
+      100% { background-position: 0% 100%; }
+    }
+    /* Radial glows */
+    .bg-glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      animation: glowPulse 8s ease-in-out infinite alternate;
+    }
+    .bg-glow.g1 { width:420px; height:420px; background:rgba(179,102,255,0.22); top:-80px; left:-80px; animation-delay:0s; }
+    .bg-glow.g2 { width:380px; height:380px; background:rgba(0,229,204,0.14); bottom:-60px; right:-60px; animation-delay:2s; }
+    .bg-glow.g3 { width:300px; height:300px; background:rgba(255,111,168,0.18); top:30%; left:60%; animation-delay:4s; }
+    .bg-glow.g4 { width:260px; height:260px; background:rgba(245,200,66,0.12); bottom:20%; left:10%; animation-delay:1s; }
+    @keyframes glowPulse {
+      0%   { opacity:0.6; transform:scale(1); }
+      100% { opacity:1;   transform:scale(1.18); }
+    }
+
+    /* Stars / particles */
+    .stars {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .star {
+      position: absolute;
+      border-radius: 50%;
+      background: white;
+      animation: twinkle linear infinite;
+    }
+    @keyframes twinkle {
+      0%,100% { opacity:0.1; transform:scale(0.8); }
+      50%      { opacity:0.9; transform:scale(1.2); }
+    }
+
+    /* Floating orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      animation: orbFloat linear infinite;
+      pointer-events: none;
+      opacity: 0;
+    }
+    @keyframes orbFloat {
+      0%   { opacity:0; transform:translateY(100vh) scale(0.4) rotate(0deg); }
+      10%  { opacity:0.7; }
+      90%  { opacity:0.5; }
+      100% { opacity:0; transform:translateY(-10vh) scale(1.1) rotate(360deg); }
+    }
+
+    /* ==============================================
+       FONT TOGGLE BUTTON — compact pill
+    =============================================== */
+    .font-toggle-btn {
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(20,6,40,0.72);
+      border: 1px solid rgba(245,200,66,0.5);
+      border-radius: 999px;
+      padding: 5px 10px 5px 7px;
+      cursor: pointer;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+      user-select: none;
+    }
+    .font-toggle-btn:hover {
+      background: rgba(245,200,66,0.18);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 18px rgba(245,200,66,0.22);
+    }
+    .font-toggle-btn:active { transform: scale(0.95); }
+    .font-toggle-btn .toggle-icon {
+      font-size: 12px;
+      line-height: 1;
+    }
+    @keyframes spinIcon {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    .font-toggle-btn .toggle-label {
+      font-family: var(--f-caps);
+      font-size: 8.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      line-height: 1;
+      white-space: nowrap;
+    }
+    /* Small toggle track */
+    .font-toggle-btn .toggle-track {
+      width: 26px; height: 14px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 7px;
+      position: relative;
+      border: 1px solid rgba(245,200,66,0.35);
+      transition: background 0.25s;
+      flex-shrink: 0;
+    }
+    .font-toggle-btn .toggle-thumb {
+      position: absolute;
+      top: 2px; left: 2px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+      transition: left 0.22s cubic-bezier(0.4,0,0.2,1);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    }
+    body.font-en .font-toggle-btn .toggle-thumb { left: 14px; }
+    body.font-en .font-toggle-btn .toggle-track { background: rgba(245,200,66,0.18); }
+
+    /* ==============================================
+       MAIN PAGE WRAPPER
+    =============================================== */
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(44px, 6vh, 60px) clamp(14px, 4vw, 24px) clamp(16px, 2.5vh, 24px);
+      box-sizing: border-box;
+    }
+
+    /* ==============================================
+       DECORATIVE BORDER FRAME
+    =============================================== */
+    .frame {
+      position: fixed;
+      inset: 10px;
+      z-index: 2;
+      pointer-events: none;
+      border: 1px solid rgba(245,200,66,0.35);
+      border-radius: 18px;
+    }
+    .frame::before {
+      content:"";
+      position:absolute;
+      inset:5px;
+      border:1px solid rgba(245,200,66,0.14);
+      border-radius:14px;
+    }
+    /* Animated corner dots */
+    .frame::after {
+      content:"";
+      position:absolute;
+      top:-2px; left:-2px;
+      width:10px; height:10px;
+      border-radius:50%;
+      background:var(--gold);
+      box-shadow: calc(100vw - 16px) 0 0 var(--gold),
+                  0 calc(100vh - 36px) 0 var(--gold),
+                  calc(100vw - 16px) calc(100vh - 36px) 0 var(--gold);
+      opacity:0.6;
+      animation: cornerPulse 3s ease-in-out infinite alternate;
+    }
+    @keyframes cornerPulse {
+      0%   { opacity:0.3; }
+      100% { opacity:0.8; }
+    }
+
+    /* ==============================================
+       HEADER EYEBROW
+    =============================================== */
+    .eyebrow {
+      font-family: var(--f-caps);
+      font-size: clamp(8.5px,2.2vw,11px);
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: clamp(6px, 1.2vh, 10px);
+      animation: fadeSlideDown 1s ease both;
+      text-shadow: 0 0 20px rgba(245,200,66,0.5);
+    }
+    @keyframes fadeSlideDown {
+      from { opacity:0; transform:translateY(-16px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    /* ==============================================
+       BIRTHDAY CAKE — Compact Proportion
+    =============================================== */
+    .cake-scene {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 auto clamp(10px, 1.8vh, 18px);
+      animation: cakeEntrance 1.2s cubic-bezier(0.22,0.61,0.36,1) 0.3s both;
+      filter: drop-shadow(0 15px 30px rgba(0,0,0,0.45));
+    }
+    @keyframes cakeEntrance {
+      from { opacity:0; transform:scale(0.6) translateY(40px); }
+      to   { opacity:1; transform:scale(1) translateY(0); }
+    }
+
+    /* ---- Candles ---- */
+    .candles-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: clamp(6px,2vw,12px);
+      margin-bottom: 0;
+      position: relative;
+      z-index: 10;
+    }
+    .candle {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Flame */
+    .flame-wrap {
+      position: relative;
+      width: clamp(11px,3vw,15px);
+      height: clamp(20px,5.2vw,27px);
+      margin-bottom: 1px;
+    }
+    .flame-outer {
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at 50% 90%,
+        #fff5a0 0%, #ffe040 25%, #ff9000 55%, #cc3300 85%, transparent 100%);
+      border-radius: 50% 50% 35% 35% / 60% 60% 40% 40%;
+      animation: flameDance 0.5s ease-in-out infinite alternate;
+      box-shadow: 0 0 10px 4px rgba(255,160,0,0.6), 0 0 20px 8px rgba(255,80,0,0.3);
+      transform-origin: bottom center;
+    }
+    .flame-inner {
+      position: absolute;
+      bottom: 2px; left: 50%;
+      transform: translateX(-50%);
+      width: 45%;
+      height: 55%;
+      background: radial-gradient(ellipse at 50% 90%, #ffffff 0%, #fffde0 60%, transparent 100%);
+      border-radius: 50% 50% 30% 30% / 60% 60% 40% 40%;
+      animation: flameDance 0.5s ease-in-out infinite alternate-reverse;
+      transform-origin: bottom center;
+    }
+    @keyframes flameDance {
+      0%   { transform: translateX(-50%) scaleX(1) scaleY(1) rotate(-2deg); }
+      50%  { transform: translateX(-50%) scaleX(0.88) scaleY(1.07) rotate(1.5deg); }
+      100% { transform: translateX(-50%) scaleX(1.08) scaleY(0.95) rotate(-1deg); }
+    }
+    .candle:nth-child(1) .flame-outer { animation-delay:0.0s; }
+    .candle:nth-child(2) .flame-outer { animation-delay:0.1s; }
+    .candle:nth-child(3) .flame-outer { animation-delay:0.2s; }
+    .candle:nth-child(4) .flame-outer { animation-delay:0.15s; }
+    .candle:nth-child(5) .flame-outer { animation-delay:0.05s; }
+    /* Glow dot under flame */
+    .flame-glow {
+      position: absolute;
+      bottom: -4px; left: 50%;
+      transform: translateX(-50%);
+      width: 8px; height: 4px;
+      background: rgba(255,180,0,0.5);
+      border-radius: 50%;
+      filter: blur(3px);
+    }
+
+    /* Wick */
+    .wick {
+      width: 1.5px;
+      height: clamp(3px,1vw,5px);
+      background: linear-gradient(to bottom, #555, #222);
+      border-radius: 1px;
+      margin-bottom: -1px;
+    }
+
+    /* Candle body */
+    .candle-body {
+      width: clamp(10px,2.8vw,13px);
+      border-radius: clamp(2px,0.8vw,4px);
+      position: relative;
+      overflow: hidden;
+    }
+    /* Height & colour per candle */
+    .candle:nth-child(1) .candle-body { height:clamp(19px,5.2vw,27px); background:linear-gradient(160deg,#ff8fa8 0%,#e0356a 60%,#b81248 100%); box-shadow:inset 1.5px 0 3px rgba(255,255,255,0.35); }
+    .candle:nth-child(2) .candle-body { height:clamp(25px,6.8vw,35px); background:linear-gradient(160deg,#ffe680 0%,#f0a800 60%,#c07800 100%); box-shadow:inset 1.5px 0 3px rgba(255,255,255,0.35); }
+    .candle:nth-child(3) .candle-body { height:clamp(29px,8vw,41px); background:linear-gradient(160deg,#b8f0ff 0%,#38b6e8 60%,#0d7bbf 100%); box-shadow:inset 1.5px 0 3px rgba(255,255,255,0.35); }
+    .candle:nth-child(4) .candle-body { height:clamp(25px,6.8vw,35px); background:linear-gradient(160deg,#ddb8ff 0%,#9b3fdb 60%,#6a1a9e 100%); box-shadow:inset 1.5px 0 3px rgba(255,255,255,0.35); }
+    .candle:nth-child(5) .candle-body { height:clamp(19px,5.2vw,27px); background:linear-gradient(160deg,#b8ffd0 0%,#28c46a 60%,#0d8a3f 100%); box-shadow:inset 1.5px 0 3px rgba(255,255,255,0.35); }
+    /* Shine strip on each candle */
+    .candle-body::after {
+      content:"";
+      position:absolute;
+      top:4px; left:28%;
+      width:20%;
+      height:calc(100% - 8px);
+      background:rgba(255,255,255,0.28);
+      border-radius:2px;
+    }
+    /* Wax drip */
+    .candle-body::before {
+      content:"";
+      position:absolute;
+      top:-1px; left:30%;
+      width:35%;
+      height:8px;
+      background:inherit;
+      border-radius:0 0 4px 4px;
+      filter:brightness(1.3);
+    }
+
+    /* ---- Cake Tiers ---- */
+    .cake-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .tier {
+      position: relative;
+      border-radius: 8px;
+      overflow: visible;
+    }
+
+    /* Frosting blob on top of each tier */
+    .tier-frost {
+      position: absolute;
+      top: -9px;
+      left: 0; right: 0;
+      height: 18px;
+      background: white;
+      border-radius: 50%;
+      /* drip effect via box-shadow droplets */
+      overflow: visible;
+      z-index: 2;
+    }
+
+    /* ---- Tier 1 (top) ---- */
+    .t1 {
+      width: clamp(84px,25vw,116px);
+      height: clamp(32px,8vw,42px);
+      background: linear-gradient(165deg, #ff9ed4 0%, #e8328e 55%, #b81070 100%);
+      box-shadow:
+        0 5px 0 #880a52,
+        inset 0 2px 5px rgba(255,255,255,0.35);
+      z-index: 3;
+      margin-top: 6px;
+    }
+    /* Polka dots decoration */
+    .t1::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.45) 3px, transparent 3px),
+        radial-gradient(circle, rgba(255,255,255,0.3) 2px, transparent 2px);
+      background-size: 18px 18px, 10px 10px;
+      background-position: 4px 6px, 10px 12px;
+      border-radius:8px;
+    }
+
+    /* ---- Tier 2 (middle) ---- */
+    .t2 {
+      width: clamp(122px,35vw,165px);
+      height: clamp(38px,9.5vw,52px);
+      background: linear-gradient(165deg, #ffe680 0%, #f0a800 55%, #c07800 100%);
+      box-shadow:
+        0 6px 0 #8a5a00,
+        inset 0 2px 5px rgba(255,255,255,0.35);
+      z-index: 2;
+      margin-top: -2px;
+    }
+    /* Wavy stripe decoration */
+    .t2::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image: repeating-linear-gradient(
+        90deg,
+        transparent 0px,
+        transparent 10px,
+        rgba(255,255,255,0.18) 10px,
+        rgba(255,255,255,0.18) 11px
+      );
+      border-radius:8px;
+    }
+
+    /* ---- Tier 3 (bottom) ---- */
+    .t3 {
+      width: clamp(160px,46vw,218px);
+      height: clamp(44px,11vw,60px);
+      background: linear-gradient(165deg, #b4f0ff 0%, #0ea5cf 55%, #0570a0 100%);
+      box-shadow:
+        0 6px 0 #034f78,
+        inset 0 2px 5px rgba(255,255,255,0.35);
+      z-index: 1;
+      margin-top: -2px;
+      border-radius: 8px 8px 12px 12px;
+    }
+    /* Star row decoration */
+    .t3::after {
+      content:"★ ★ ★ ★ ★ ★";
+      position:absolute;
+      top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      white-space:nowrap;
+      font-size:clamp(9px,2.2vw,12px);
+      color:rgba(255,250,180,0.8);
+      letter-spacing: clamp(2.5px,0.8vw,5px);
+      text-shadow:0 0 6px rgba(255,220,0,0.5);
+    }
+
+    /* Frosting drips per tier */
+    .frost {
+      position: absolute;
+      top: -9px;
+      left: -2px; right: -2px;
+      height: 14px;
+      z-index: 10;
+    }
+    .frost svg { width:100%; height:100%; display:block; }
+
+    /* Plate */
+    .cake-plate {
+      width: clamp(180px,50vw,244px);
+      height: clamp(11px,2.8vw,15px);
+      background: linear-gradient(to bottom, #f5e6b2, #c9980a, #8a6500);
+      border-radius: 50%;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+      margin-top: 3px;
+    }
+      width: clamp(220px,62vw,290px);
+      height: clamp(14px,3.5vw,18px);
+      background: linear-gradient(to bottom, #f5e6b2, #c9980a, #8a6500);
+      border-radius: 50%;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+      margin-top: 4px;
+    }
+
+    /* Floating birthday stars around cake */
+    .cake-stars {
+      position:absolute;
+      inset:-40px;
+      pointer-events:none;
+      z-index:0;
+    }
+    .cake-star {
+      position:absolute;
+      font-size:clamp(10px,3vw,16px);
+      animation: cakeStarOrbit linear infinite;
+    }
+    @keyframes cakeStarOrbit {
+      0%   { opacity:0; transform:scale(0) rotate(0deg); }
+      20%  { opacity:1; transform:scale(1) rotate(72deg); }
+      80%  { opacity:0.8; }
+      100% { opacity:0; transform:scale(0.4) rotate(360deg); }
+    }
+
+    /* ==============================================
+       TITLE TEXT
+    =============================================== */
+    .hero-label {
+      font-family: var(--f-caps);
+      font-size: clamp(8px,2vw,11px);
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+      animation: fadeSlideDown 1s ease 0.4s both;
+      text-shadow: 0 0 24px rgba(245,200,66,0.6);
+    }
+
+    .hero-name {
+      font-family: var(--f-title);
+      font-size: clamp(40px,10vw,72px);
+      font-weight: 400;
+      line-height: 1.05;
+      margin-bottom: 0;
+      background: linear-gradient(120deg,
+        #fff 0%, #fff 20%,
+        #fff5a0 35%, #ffd700 48%,
+        #ffb700 54%, #fff 65%,
+        #fff 100%);
+      background-size: 280% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: goldShimmer 6s ease-in-out infinite, fadeSlideDown 1s ease 0.5s both;
+      filter: drop-shadow(0 2px 16px rgba(245,200,66,0.4));
+    }
+    @keyframes goldShimmer {
+      0%,15%  { background-position:100% 0; }
+      55%,70% { background-position:0% 0; }
+      100%    { background-position:100% 0; }
+    }
+
+    /* Sinhala subtitle under name */
+    .hero-si {
+      font-family: var(--f-si);
+      font-size: clamp(12px,3.2vw,17px);
+      color: rgba(255,220,120,0.9);
+      margin-top: 2px;
+      animation: fadeSlideDown 1s ease 0.65s both;
+    }
+
+    /* Gold divider bar */
+    .gold-bar {
+      width: clamp(70px,20vw,130px);
+      height: 2px;
+      margin: clamp(6px,1.2vh,12px) auto;
+      background: linear-gradient(90deg, transparent, var(--gold), var(--gold-bright), var(--gold), transparent);
+      background-size: 200% 100%;
+      animation: barGleam 3.5s ease-in-out infinite;
+    }
+    @keyframes barGleam {
+      0%,100% { background-position:0% 0; }
+      50%     { background-position:100% 0; }
+    }
+
+    /* ==============================================
+       AGE BADGES
+    =============================================== */
+    .badges {
+      display: flex;
+      gap: clamp(10px,2.8vw,16px);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: clamp(4px,1vh,10px) 0 clamp(6px,1.2vh,12px);
+      animation: fadeSlideDown 1s ease 0.75s both;
+    }
+    .badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(245,200,66,0.08);
+      border: 1.5px solid rgba(245,200,66,0.4);
+      border-radius: 14px;
+      padding: clamp(5px,1.2vh,9px) clamp(14px,3.5vw,22px);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: badgePulse 4s ease-in-out infinite alternate;
+    }
+    .badge:nth-child(2) { animation-delay: 2s; }
+    @keyframes badgePulse {
+      0%   { box-shadow: 0 0 0 rgba(245,200,66,0); }
+      100% { box-shadow: 0 0 24px rgba(245,200,66,0.25); }
+    }
+    .badge:hover { transform: translateY(-4px) scale(1.04); box-shadow: 0 10px 30px rgba(245,200,66,0.3); }
+    .badge::before {
+      content:"";
+      position:absolute;
+      top:0; left:0; right:0;
+      height:2.5px;
+      background:linear-gradient(90deg, var(--pink), var(--gold), var(--teal));
+    }
+    .badge .num {
+      font-family: var(--f-caps);
+      font-size: clamp(24px,6.5vw,38px);
+      line-height: 1;
+      color: var(--gold-bright);
+      text-shadow: 0 0 20px rgba(245,200,66,0.5);
+    }
+    .badge .lbl-en {
+      font-family: var(--f-caps);
+      font-size: clamp(6.5px,1.8vw,9px);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245,200,66,0.65);
+      margin-top: 2px;
+    }
+    .badge .lbl-si {
+      font-family: var(--f-si);
+      font-size: clamp(9px,2.4vw,12px);
+      color: rgba(255,220,160,0.75);
+      margin-top: 1px;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 18px 0;
+    }
+    .divider::before, .divider::after {
+      content:"";
+      flex:1;
+      height:1px;
+      background: linear-gradient(90deg, transparent, rgba(245,200,66,0.4), transparent);
+    }
+    .divider .orn { color: var(--gold); font-size: 14px; }
+
+    /* ==============================================
+       BODY SECTION (scroll down)
+    =============================================== */
+    .body-bg {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(180deg, rgba(26,5,51,0.0) 0%, rgba(26,5,51,0.95) 8%, rgba(26,5,51,0.95) 92%, rgba(26,5,51,0.0) 100%);
+      padding: clamp(60px,10vw,96px) clamp(16px,5vw,28px);
+    }
+    .wrap { max-width: var(--max); margin: 0 auto; }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: clamp(28px,6vw,44px);
+    }
+    .sec-eyebrow {
+      font-family: var(--f-caps);
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .sec-title-en {
+      font-family: var(--f-en);
+      font-size: clamp(28px,6vw,42px);
+      font-weight: 600;
+      line-height: 1.1;
+      color: #fff;
+    }
+    .sec-title-si {
+      font-family: var(--f-si);
+      font-size: clamp(20px,5vw,30px);
+      font-weight: 500;
+      color: rgba(255,220,120,0.9);
+      margin-top: 4px;
+    }
+
+    /* Prose card */
+    .prose-card {
+      background: rgba(255,255,255,0.055);
+      border: 1px solid rgba(245,200,66,0.3);
+      border-radius: var(--r-lg);
+      padding: clamp(28px,6vw,50px) clamp(22px,6vw,44px);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow:
+        0 24px 60px rgba(0,0,0,0.4),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .prose-card::before {
+      content:"";
+      position:absolute;
+      inset:9px;
+      border:1px solid rgba(245,200,66,0.12);
+      border-radius:16px;
+      pointer-events:none;
+    }
+    .prose-card::after {
+      content:"";
+      position:absolute;
+      top:0; left:0; right:0;
+      height:4px;
+      background:linear-gradient(90deg, transparent, var(--gold-bright), var(--gold), var(--gold-bright), transparent);
+    }
+
+    .prose-en {
+      font-family: var(--f-en);
+      font-style: italic;
+      font-size: clamp(15px,4.3vw,20px);
+      color: rgba(255,250,220,0.92);
+      line-height: 2;
+      margin-bottom: 20px;
+    }
+    .prose-si {
+      font-family: var(--f-si);
+      font-size: clamp(14px,4vw,18px);
+      color: rgba(255,250,220,0.92);
+      line-height: 2.2;
+      margin-bottom: 20px;
+    }
+    .prose-from-en {
+      font-family: var(--f-en);
+      font-size: clamp(13px,3.5vw,17px);
+      color: rgba(245,200,66,0.75);
+      font-style: italic;
+      margin-top: 24px;
+    }
+    .prose-from-si {
+      font-family: var(--f-si);
+      font-size: clamp(12px,3.2vw,15px);
+      color: rgba(245,200,66,0.75);
+    }
+
+    /* Saree band */
+    .saree {
+      width:100%;
+      padding:10px 0;
+      position:relative;
+      z-index:1;
+    }
+    .saree::before {
+      content:"";
+      display:block;
+      height:2px;
+      background:linear-gradient(90deg, transparent 0%, var(--gold) 30%, var(--gold-bright) 50%, var(--gold) 70%, transparent 100%);
+    }
+    .saree::after {
+      content:"";
+      display:block;
+      height:2px;
+      margin-top:6px;
+      background:linear-gradient(90deg, transparent 0%, rgba(245,200,66,0.4) 25%, rgba(245,200,66,0.4) 75%, transparent 100%);
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity:0;
+      transform:translateY(28px);
+      transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1), transform 0.85s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+
+    /* ==============================================
+       FONT SWITCH — hide/show based on body class
+    =============================================== */
+    /* Default: show Sinhala, hide English-only blocks */
+    .only-en { display: none; }
+    .only-si { display: block; }
+    /* When English mode active */
+    body.font-en .only-en { display: block; }
+    body.font-en .only-si { display: none; }
+
+    /* For inline spans */
+    span.only-en { display: none; }
+    span.only-si { display: inline; }
+    body.font-en span.only-en { display: inline; }
+    body.font-en span.only-si { display: none; }
+
+    /* ==============================================
+       FOOTER
+    =============================================== */
+    .footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 28px 20px 36px;
+      font-family: var(--f-caps);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.4);
+    }
+    .footer .heart {
+      color: var(--pink);
+      animation: hb 1.5s ease-in-out infinite;
+      display: inline-block;
+    }
+    @keyframes hb {
+      0%,100% { transform: scale(1); }
+      40%     { transform: scale(1.3); }
+    }
+
+    /* ==============================================
+       CONFETTI (falling from top)
+    =============================================== */
+    #confetti-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ==============================================
+       SCROLL-DOWN BUTTON
+    =============================================== */
+    .scroll-btn {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-top: 28px;
+      text-decoration: none;
+      cursor: pointer;
+      animation: scrollBtnFade 1.4s ease 1.2s both;
+    }
+    @keyframes scrollBtnFade {
+      from { opacity:0; transform:translateY(16px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    .scroll-btn-text {
+      font-family: var(--f-si);
+      font-size: clamp(12px,3.5vw,15px);
+      color: rgba(245,200,66,0.85);
+      letter-spacing: 0.04em;
+      transition: color 0.25s;
+    }
+    body.font-en .scroll-btn-text {
+      font-family: var(--f-caps);
+      font-size: clamp(9px,2.5vw,11px);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+    .scroll-btn-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(245,200,66,0.75);
+      animation: arrowBounce 1.8s ease-in-out infinite;
+      transition: color 0.25s;
+    }
+    @keyframes arrowBounce {
+      0%,100% { transform: translateY(0); opacity:0.75; }
+      50%     { transform: translateY(7px); opacity:1; }
+    }
+    .scroll-btn:hover .scroll-btn-text { color: var(--gold-bright); }
+    .scroll-btn:hover .scroll-btn-arrow { color: var(--gold-bright); }
+
+    /* ==============================================
+       RESPONSIVE
+    =============================================== */
+    @media (max-width: 420px) {
+      .t1 { width: 92px; height: 38px; }
+      .t2 { width: 132px; height: 46px; }
+      .t3 { width: 172px; height: 54px; }
+      .cake-plate { width: 196px; }
+      .badges { gap: 10px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Animated background -->
+  <div class="bg-wrap">
+    <div class="bg-gradient"></div>
+    <div class="bg-glow g1"></div>
+    <div class="bg-glow g2"></div>
+    <div class="bg-glow g3"></div>
+    <div class="bg-glow g4"></div>
+    <div class="stars" id="stars"></div>
+    <div id="orbs"></div>
+  </div>
+
+  <!-- Confetti canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Decorative frame -->
+  <div class="frame"></div>
+
+  <!-- Font Toggle Button -->
+  <button class="font-toggle-btn" id="fontToggle" aria-label="Toggle font language">
+    <!-- <span class="toggle-icon">🔤</span> -->
+    <span class="toggle-label only-si">සිං → En</span>
+    <span class="toggle-label only-en">En → සිං</span>
+    <div class="toggle-track"><div class="toggle-thumb"></div></div>
+  </button>
+
+  <!-- ============================================================
+       HERO PAGE
+  ============================================================ -->
+  <div class="page">
+
+    <!-- Eyebrow -->
+    <p class="eyebrow">🎂 &nbsp; Birthday Wishes &nbsp; 🎂</p>
+
+    <!-- Birthday Cake -->
+    <div class="cake-scene">
+      <!-- Orbiting stars around cake -->
+      <div class="cake-stars" id="cakeStars"></div>
+
+      <!-- Candles -->
+      <div class="candles-row">
+        <div class="candle">
+          <div class="flame-wrap">
+            <div class="flame-outer"></div>
+            <div class="flame-inner"></div>
+            <div class="flame-glow"></div>
+          </div>
+          <div class="wick"></div>
+          <div class="candle-body"></div>
+        </div>
+        <div class="candle">
+          <div class="flame-wrap">
+            <div class="flame-outer"></div>
+            <div class="flame-inner"></div>
+            <div class="flame-glow"></div>
+          </div>
+          <div class="wick"></div>
+          <div class="candle-body"></div>
+        </div>
+        <div class="candle">
+          <div class="flame-wrap">
+            <div class="flame-outer"></div>
+            <div class="flame-inner"></div>
+            <div class="flame-glow"></div>
+          </div>
+          <div class="wick"></div>
+          <div class="candle-body"></div>
+        </div>
+        <div class="candle">
+          <div class="flame-wrap">
+            <div class="flame-outer"></div>
+            <div class="flame-inner"></div>
+            <div class="flame-glow"></div>
+          </div>
+          <div class="wick"></div>
+          <div class="candle-body"></div>
+        </div>
+        <div class="candle">
+          <div class="flame-wrap">
+            <div class="flame-outer"></div>
+            <div class="flame-inner"></div>
+            <div class="flame-glow"></div>
+          </div>
+          <div class="wick"></div>
+          <div class="candle-body"></div>
+        </div>
+      </div>
+
+      <!-- Cake tiers -->
+      <div class="cake-body">
+        <!-- Tier 1 (top — pink) -->
+        <div class="tier t1">
+          <!-- Frosting SVG drips -->
+          <div class="frost">
+            <svg viewBox="0 0 138 14" preserveAspectRatio="none">
+              <path d="M0,0 Q8,12 16,4 Q24,14 32,4 Q40,12 48,4 Q56,14 64,4 Q72,12 80,4 Q88,14 96,4 Q104,12 112,4 Q120,14 128,4 Q134,12 138,6 L138,0 Z" fill="white"/>
+            </svg>
+          </div>
+        </div>
+        <!-- Tier 2 (middle — gold) -->
+        <div class="tier t2">
+          <div class="frost">
+            <svg viewBox="0 0 195 14" preserveAspectRatio="none">
+              <path d="M0,0 Q10,12 20,4 Q30,14 40,4 Q50,12 60,4 Q70,14 80,4 Q90,12 100,4 Q110,14 120,4 Q130,12 140,4 Q150,14 160,4 Q170,12 180,4 Q188,14 195,6 L195,0 Z" fill="white"/>
+            </svg>
+          </div>
+        </div>
+        <!-- Tier 3 (bottom — blue) -->
+        <div class="tier t3">
+          <div class="frost">
+            <svg viewBox="0 0 255 14" preserveAspectRatio="none">
+              <path d="M0,0 Q12,12 24,4 Q36,14 48,4 Q60,12 72,4 Q84,14 96,4 Q108,12 120,4 Q132,14 144,4 Q156,12 168,4 Q180,14 192,4 Q204,12 216,4 Q228,14 240,4 Q248,12 255,6 L255,0 Z" fill="white"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plate -->
+      <div class="cake-plate"></div>
+    </div><!-- /cake-scene -->
+
+    <!-- Names title -->
+    <p class="hero-label only-si">🎉 සුභ උපන්දිනයක් 🎉</p>
+    <p class="hero-label only-en">🎉 Happy Birthday 🎉</p>
+
+    <!-- Age badges -->
+    <div class="badges">
+      <div class="badge">
+        <span class="num">60</span>
+        <span class="lbl-si only-si">හැවිරිදි</span>
+        <span class="lbl-en only-en">Years</span>
+      </div>
+      <div class="badge">
+        <span class="num">56</span>
+        <span class="lbl-si only-si">හැවිරිදි</span>
+        <span class="lbl-en only-en">Years</span>
+      </div>
+    </div>
+
+    <div class="hero-name">Sarath &amp; Deepani</div>
+
+    <!-- <p class="hero-si only-si">සරත් රත්නායක සහ දීපානි රත්නායක</p> -->
+    <!-- <p class="hero-si only-en" style="font-family:var(--f-en);font-style:italic;">R. Sarath Ratnayake &amp; Deepani Ratnayake</p> -->
+
+    <div class="gold-bar"></div>
+
+    <!-- Scroll-down button -->
+    <a class="scroll-btn" href="#wishes-section" id="scrollBtn" aria-label="Scroll to wishes">
+      <span class="scroll-btn-text only-si">සුභ පැතුම් ගෙනෙන්නේ</span>
+      <span class="scroll-btn-text only-en">Offering Heartfelt Wishes</span>
+      <span class="scroll-btn-arrow" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <circle cx="11" cy="11" r="10" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+          <path d="M7 9.5 L11 13.5 L15 9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </a>
+
+  </div><!-- /page -->
+
+  <!-- Saree divider -->
+  <div class="saree"></div>
+
+  <!-- ============================================================
+       BODY SECTION — Extended wishes
+  ============================================================ -->
+  <div class="body-bg" id="wishes-section">
+    <div class="wrap">
+
+      <div class="section-head reveal">
+        <p class="sec-eyebrow only-si">🎉 උපන් දින සුභ පැතුම් 🎉</p>
+        <p class="sec-eyebrow only-en">🎉 Birthday Greetings 🎉</p>
+
+        <h2 class="sec-title-en only-en">Ruwini Farm House</h2>
+        <h2 class="sec-title-si only-si">රුවිනි ෆාම් හවුස් අධිපතිවරුන්ට</h2>
+        <p class="sec-title-si only-si" style="font-size:clamp(16px,4vw,22px);margin-top:6px;color:rgba(255,255,255,0.65);">Ruwini Farm House</p>
+      </div>
+
+      <div class="prose-card reveal">
+
+        <!-- Sinhala prose -->
+        <div class="only-si">
+          <p class="prose-si">
+            60 විය සපුරන රුවිනි ෆාම් හවුස් අධිපති<br/>
+            <strong>ආර් සරත් රත්නායක</strong> මැතිතුමන් සහ<br/>
+            56 වෙනි විය සපුරන<br/>
+            <strong>දීපානි රත්නායක</strong> මැතිනියටත්<br/>
+            නිදුක් නිරෝගී ජීවිතයකට<br/>
+            සුභ පැතුම් ගෙනෙන්නේ ❤️
+          </p>
+        </div>
+
+        <!-- English prose -->
+        <div class="only-en">
+          <p class="prose-en">
+            On this joyous occasion, we warmly celebrate<br/>
+            <em>Mr. R. Sarath Ratnayake</em>, proprietor of Ruwini Farm House,<br/>
+            as he marks his <strong>60th</strong> year,<br/>
+            and <em>Mrs. Deepani Ratnayake</em><br/>
+            as she completes her <strong>56th</strong> year.<br/>
+            May your lives be filled with<br/>
+            good health, peace &amp; abundant happiness. ❤️
+          </p>
+        </div>
+
+        <div class="gold-bar"></div>
+
+        <p class="prose-from-si only-si">
+          ❧ ප්‍රියංගනී හේරත් ඇතුළු හිතවතුන් ❧<br/>
+          මණ්ඩපොළ ප්‍රාථමික විදුහල
+        </p>
+        <p class="prose-from-en only-en">
+          ❧ Priyangani Herath &amp; Friends ❧<br/>
+          Mandapola Primary School
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="saree"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <span class="heart">♥</span>
+    &nbsp;
+    <span class="only-si">ජීවිතයේ සෑම මොහොතක්ම සුන්දර වේවා</span>
+    <span class="only-en">Wishing a beautiful life ahead</span>
+    &nbsp;
+    <span class="heart">♥</span>
+  </footer>
+
+  <!-- Audio — Happy Birthday (auto-play on first interaction) -->
+  <audio id="bd-audio" loop preload="auto">
+    <source src="happy-birthday.mp3" type="audio/mpeg"/>
+  </audio>
+
+  <!-- ============================================================
+       SCRIPTS
+  ============================================================ -->
+  <script>
+    /* ---- Stars background ---- */
+    (function(){
+      const c = document.getElementById('stars');
+      for(let i=0;i<90;i++){
+        const s = document.createElement('div');
+        s.className = 'star';
+        const sz = 1 + Math.random()*2.5;
+        s.style.cssText = `
+          width:${sz}px; height:${sz}px;
+          top:${Math.random()*100}%;
+          left:${Math.random()*100}%;
+          animation-duration:${2+Math.random()*5}s;
+          animation-delay:${Math.random()*6}s;
+        `;
+        c.appendChild(s);
+      }
+    })();
+
+    /* ---- Floating orbs ---- */
+    (function(){
+      const c = document.getElementById('orbs');
+      const cols = ['rgba(255,111,168,0.5)','rgba(0,229,204,0.4)','rgba(179,102,255,0.4)','rgba(245,200,66,0.4)','rgba(135,206,235,0.45)'];
+      for(let i=0;i<22;i++){
+        const o = document.createElement('div');
+        o.className = 'orb';
+        const sz = 8+Math.random()*18;
+        o.style.cssText = `
+          width:${sz}px; height:${sz}px;
+          left:${Math.random()*100}%;
+          background:${cols[Math.floor(Math.random()*cols.length)]};
+          filter:blur(${1+Math.random()*2}px);
+          animation-duration:${8+Math.random()*14}s;
+          animation-delay:${Math.random()*12}s;
+        `;
+        c.appendChild(o);
+      }
+    })();
+
+    /* ---- Cake floating stars ---- */
+    (function(){
+      const c = document.getElementById('cakeStars');
+      const emojis = ['⭐','🌟','✨','💫','🎉','🎊','🌸','💖'];
+      for(let i=0;i<12;i++){
+        const s = document.createElement('div');
+        s.className = 'cake-star';
+        const angle = (i/12)*360;
+        const r = 60 + Math.random()*40;
+        const x = 50 + Math.cos(angle*Math.PI/180)*r/1.5;
+        const y = 50 + Math.sin(angle*Math.PI/180)*r/2.2;
+        s.textContent = emojis[i%emojis.length];
+        s.style.cssText = `
+          left:${x}%;
+          top:${y}%;
+          animation-duration:${3+Math.random()*4}s;
+          animation-delay:${Math.random()*6}s;
+        `;
+        c.appendChild(s);
+      }
+    })();
+
+    /* ---- Confetti canvas ---- */
+    (function(){
+      const canvas = document.getElementById('confetti-canvas');
+      const ctx = canvas.getContext('2d');
+      let W, H, pieces = [];
+
+      function resize(){
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      const COLORS = ['#f5c842','#ff6fa8','#00e5cc','#b366ff','#ff9ed4','#87ceeb','#ffffff','#ffe066'];
+      const SHAPES = ['rect','circle','triangle'];
+
+      function Piece(){
+        this.reset();
+      }
+      Piece.prototype.reset = function(){
+        this.x = Math.random()*W;
+        this.y = -10 - Math.random()*80;
+        this.w = 6 + Math.random()*10;
+        this.h = 4 + Math.random()*8;
+        this.color = COLORS[Math.floor(Math.random()*COLORS.length)];
+        this.shape = SHAPES[Math.floor(Math.random()*SHAPES.length)];
+        this.vx = -1.5 + Math.random()*3;
+        this.vy = 1.5 + Math.random()*2.5;
+        this.va = (-0.05 + Math.random()*0.1);
+        this.angle = Math.random()*Math.PI*2;
+        this.alpha = 0.7 + Math.random()*0.3;
+        this.life = 1;
+      };
+      Piece.prototype.update = function(){
+        this.x += this.vx;
+        this.y += this.vy;
+        this.angle += this.va;
+        if(this.y > H + 20) this.reset();
+      };
+      Piece.prototype.draw = function(){
+        ctx.save();
+        ctx.globalAlpha = this.alpha;
+        ctx.fillStyle = this.color;
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.angle);
+        if(this.shape === 'rect'){
+          ctx.fillRect(-this.w/2, -this.h/2, this.w, this.h);
+        } else if(this.shape === 'circle'){
+          ctx.beginPath();
+          ctx.arc(0,0,this.w/2,0,Math.PI*2);
+          ctx.fill();
+        } else {
+          ctx.beginPath();
+          ctx.moveTo(0,-this.h/2);
+          ctx.lineTo(this.w/2,this.h/2);
+          ctx.lineTo(-this.w/2,this.h/2);
+          ctx.closePath();
+          ctx.fill();
+        }
+        ctx.restore();
+      };
+
+      /* Spawn 60 pieces */
+      for(let i=0;i<60;i++){
+        const p = new Piece();
+        p.y = Math.random()*H; /* distribute initially */
+        pieces.push(p);
+      }
+
+      function loop(){
+        ctx.clearRect(0,0,W,H);
+        pieces.forEach(p=>{ p.update(); p.draw(); });
+        requestAnimationFrame(loop);
+      }
+      loop();
+    })();
+
+    /* ---- Font Toggle ---- */
+    (function(){
+      const btn = document.getElementById('fontToggle');
+      let isEn = false;
+      btn.addEventListener('click', function(){
+        isEn = !isEn;
+        document.body.classList.toggle('font-en', isEn);
+        /* Spin the icon */
+        const icon = btn.querySelector('.toggle-icon'); 
+        icon.style.animation = 'none';
+        icon.offsetWidth; /* reflow */
+        icon.style.animation = 'spinIcon 0.4s ease';
+      });
+    })();
+
+    /* ---- Scroll reveal ---- */
+    (function(){
+      const els = document.querySelectorAll('.reveal');
+      if(!els.length) return;
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.1 });
+      els.forEach(el => io.observe(el));
+    })();
+
+    /* ---- Auto-play audio on first user interaction ---- */
+    (function(){
+      const audio = document.getElementById('bd-audio');
+      if(!audio) return;
+      let played = false;
+      function tryPlay(){
+        if(played) return;
+        played = true;
+        audio.volume = 0.72;
+        audio.play().catch(()=>{ played = false; });
+      }
+      /* Try immediately (some browsers allow it) */
+      tryPlay();
+      /* Fallback: on first tap/click anywhere */
+      ['click','touchstart','keydown'].forEach(ev =>
+        document.addEventListener(ev, tryPlay, { once: true })
+      );
+    })();
+  </script>
+</body>
+</html>
